@@ -29,7 +29,11 @@ def get_matching_laptops(laptops: List[Laptop], person: Person) -> List[Laptop]:
         if laptop.os == person.preferred_os:
             matches.append(laptop)
 
-    return matches
+    if matches:
+        return matches
+
+    print(f"No laptops found with {person.preferred_os.value}. Returning available laptops instead.")
+    return laptops
 
 
 laptops = [
